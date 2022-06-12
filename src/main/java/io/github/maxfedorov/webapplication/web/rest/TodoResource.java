@@ -5,9 +5,7 @@ import io.github.maxfedorov.webapplication.service.TodoService;
 import io.github.maxfedorov.webapplication.service.dto.TodoDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,4 +26,10 @@ public class TodoResource {
         return ResponseEntity.ok(todos);
     }
 
+    @PostMapping("/todo")
+    @PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.USER + "\")")
+    public ResponseEntity<TodoDTO> create(@RequestBody TodoDTO dto) {
+        TodoDTO created = todoService.create(dto);
+        return ResponseEntity.ok(created);
+    }
 }

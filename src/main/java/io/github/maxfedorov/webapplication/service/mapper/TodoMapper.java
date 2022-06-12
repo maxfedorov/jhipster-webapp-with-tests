@@ -7,10 +7,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class TodoMapper {
 
-    public TodoDTO todoToTodoDTO(final Todo todo) {
+    public TodoDTO todoToDto(final Todo todo) {
         TodoDTO dto = new TodoDTO();
         dto.setId(todo.getId());
         dto.setTitle(todo.getTitle());
         return dto;
+    }
+
+    public Todo dtoToTodo(final TodoDTO dto) {
+        Todo todo = new Todo();
+        todo.setTitle(dto.getTitle());
+        return todo;
     }
 }

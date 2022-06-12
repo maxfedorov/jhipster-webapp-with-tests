@@ -18,6 +18,15 @@ export const Brand = () => (
   </NavbarBrand>
 );
 
+export const Todo = () => (
+  <NavItem>
+    <NavLink tag={Link} to="/todo" className="d-flex align-items-center">
+      <FontAwesomeIcon icon="home" />
+      <span>Todo</span>
+    </NavLink>
+  </NavItem>
+);
+
 export const Home = () => (
   <NavItem>
     <NavLink tag={Link} to="/" className="d-flex align-items-center">
