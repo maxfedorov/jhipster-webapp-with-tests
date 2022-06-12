@@ -20,7 +20,7 @@ export const Brand = () => (
 
 export const Todo = () => (
   <NavItem>
-    <NavLink tag={Link} to="/todo" className="d-flex align-items-center">
+    <NavLink tag={Link} to="/todo" className="d-flex align-items-center" data-cy={"todo"}>
       <FontAwesomeIcon icon="home" />
       <span>Todo</span>
     </NavLink>
