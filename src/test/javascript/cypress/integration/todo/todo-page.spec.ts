@@ -14,13 +14,13 @@ describe('/todo', () => {
 
   it('should be accessible through menu', () => {
     cy.visit('');
-    cy.get("[data-cy=\"todo\"]").click({force: true});
+    cy.get('[data-cy="todo"]').click({force: true});
     cy.url().should('match', /\/todo$/);
   });
 
   it("should be able to change 'user' firstname settings", () => {
-    cy.get('[data-cy=\"todoTitleInput\"]').clear().type('test');
-    cy.get('[data-cy=\"todoCreate\"]').click({force: true});
+    cy.get('[data-cy="todoTitleInput"]').clear().type('test');
+    cy.get('[data-cy="todoCreate"]').click({force: true});
     cy.wait('@todoSave').then(({response}) => expect(response.statusCode).to.equal(200));
   });
 });
